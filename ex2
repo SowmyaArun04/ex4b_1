@@ -1,0 +1,106 @@
+sudo apt install gcc
+gcc -version
+sudo nano <filename>
+sudo gcc filename.c
+./a.out
+
+
+2. Install Linux using Virtualbox and execute a C program on the Linux platform to check 
+whether the given alphabet is vowel or consonant
+
+#include<stdio.h>
+void main(){
+char vowel;
+printf("Enter the alphabet : ");
+scanf("%c",&vowel);
+if(vowel=='a'||vowel=='e'||vowel=='i'||vowel=='o'||vowel=='u')
+{printf("Its vowel\n");
+}
+else
+{printf("Its consonant\n");
+}
+}
+
+3.Install a windows using Virtualbox and execute a C program on the windows platform to 
+find the largest element of given array
+#include <stdio.h> 
+ int main() 
+ { 
+ int arr[] = {25, 11, 7, 75, 56}; 
+ int length = sizeof(arr)/sizeof(arr[0]); 
+ int max = arr[0]; 
+ for (int i = 0; i < length; i++) { 
+ if(arr[i] > max) 
+ max = arr[i]; 
+ } 
+ printf("Largest element present in given array: %d\n", max); 
+ return 0; 
+ } 
+
+
+4.Create the virtual machine using Virtualbox and install the c compiler on the Virtual 
+machine to execute a C program to check leap year
+
+#include<stdio.h> 
+ void main() { 
+ int year; 
+ printf("Enter a year: "); 
+ scanf("%d", &year); 
+ if((year%4==0) && ((year%400==0) || (year%100!=0))) 
+ { 
+ printf("IT is a leap year\n"); 
+ } else { 
+ printf("IT is not a leap year\n"); 
+ } 
+ }
+
+
+5. Create the virtual machine using Virtualbox and install the windows OS on the Virtual 
+machine to execute a C program for printing size of the basic data types
+#include<stdio.h> 
+ void main() { 
+ int a;
+ float b;
+ char c;
+ double d;
+ printf("size of int = %ld\nsize of float = %ld\nsize of char = %ld\nsize of double = 
+%ld\n",sizeof(a),sizeof(b),sizeof(c),sizeof(d)); 
+ }
+
+
+6.Install a C Compiler in Virtual machine and execute a factorial program using C.
+
+#include <stdio.h> 
+ void main() 
+ { 
+ int i,fact=1,num; 
+ printf("Enter a number: "); 
+ scanf("%d", &num); 
+ for (int i = 1; i <= num; i++) { 
+ fact=fact*i; 
+ } 
+ printf("Factorial is: %d\n", fact); 
+ }
+
+
+7.Install a C compiler on Virtual box/VMware workstation and write the File/Read 
+operation program and execute it
+
+#include<stdio.h>
+void main(){
+FILE*ptr;
+char ch;
+char filename[50];
+printf("Enter the file name : ");
+scanf("%s",filename);
+ptr=fopen(filename,"r");
+if(NULL==ptr){
+printf("File can't be opened");
+}
+printf("content of the file are \n");
+do{
+ch=fgetc(ptr);
+printf("%c",ch);
+}while(ch!= EOF);
+fclose(ptr);
+}
