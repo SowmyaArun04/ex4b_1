@@ -1,0 +1,24 @@
+use root command
+apt update ; apt install mariadb-server mariadb-client build-essential net-tools curl git software-properties-common -y
+
+systemctl start mariadb ; systemctl enable mariadb
+mysql_secure_installation
+
+mysql -u root -p
+CREATE DATABASE opennebula;
+CREATE USER 'oneadmin'@'localhost' IDENTIFIED BY 'oneadmin';
+GRANT ALL ON opennebula.* TO 'oneadmin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+wget -q -O- https://downloads.opennebula.org/repo/repo.key | sudo apt-key add -
+echo "deb https://downloads.opennebula.org/repo/5.6/Ubuntu/22.04 stable opennebula" | sudo tee /etc/apt/sources.list.d/opennebula.list
+apt update ; apt install opennebula opennebula-sunstone opennebula-gate opennebula-flow -y
+sudo /usr/share/one/install_gems
+systemctl start opennebula opennebula-sunstone ; systemctl enable opennebula opennebula-sunstone
+nano /etc/one/oned.conf
+systemctl status opennebula
+
+nano /var/lib/one/.one/one_auth
+User - oneadmin          | Password - RyibUScheym9
+http://192.168.1.50:9869
